@@ -46,7 +46,7 @@ func ConvertToUpsertVertexSql(vertex model.IVertex, set string, where string) (s
 		return "", fmt.Errorf("用于set更新字段的属性不能为空")
 	}
 	// 获取return返回字段
-	clause, err := utils.GetClauseByNorm(vertex)
+	clause, err := utils.GetClause(vertex)
 	if err != nil {
 		return "", err
 	}

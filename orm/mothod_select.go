@@ -22,7 +22,7 @@ import (
 // @Date: 2024/5/27
 func (db *DB) GetVertexByVid(vertex model.IVertex) (*dialectors.ResultSet, error) {
 	vid := utils.GetVidWithPolicy(vertex.GetVid(), vertex.GetPolicy())
-	clause, err := utils.GetVClauseByNorm(vertex, vertex.TagName())
+	clause, err := utils.GetVClause(vertex, vertex.TagName())
 	if err != nil {
 		return nil, err
 	}
@@ -49,7 +49,7 @@ func (db *DB) GetVertexByVid(vertex model.IVertex) (*dialectors.ResultSet, error
 // @Date: 2024/5/27
 func (db *DB) GetNextVertexByVid(vertex model.IVertex, edge model.IEdge, level int) (*dialectors.ResultSet, error) {
 	vid := utils.GetVidWithPolicy(vertex.GetVid(), vertex.GetPolicy())
-	clause, err := utils.GetVClauseByNorm(vertex, vertex.TagName())
+	clause, err := utils.GetVClause(vertex, vertex.TagName())
 	if err != nil {
 		return nil, err
 	}
@@ -105,7 +105,7 @@ func (db *DB) GetNextVertexMapByVid(vertex model.IVertex, edge model.IEdge, leve
 // @Date: 2024/5/27
 func (db *DB) GetUpVertexByVid(vertex model.IVertex, edge model.IEdge, level int) (*dialectors.ResultSet, error) {
 	vid := utils.GetVidWithPolicy(vertex.GetVid(), vertex.GetPolicy())
-	clause, err := utils.GetVClauseByNorm(vertex, vertex.TagName())
+	clause, err := utils.GetVClause(vertex, vertex.TagName())
 	if err != nil {
 		return nil, err
 	}

@@ -45,7 +45,7 @@ func ConvertToUpdateEdgeSql(edge model.IEdge, set string, where string) (string,
 		return "", fmt.Errorf("用于set更新字段的属性不能为空")
 	}
 	// 获取return返回字段
-	clause, err := utils.GetClauseByNorm(edge)
+	clause, err := utils.GetClause(edge)
 	if err != nil {
 		return "", err
 	}

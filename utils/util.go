@@ -145,12 +145,12 @@ func NValueToInterface(p *nebula_type.Value) interface{} {
 	return nil
 }
 
-// GetVClauseByNorm 从结构体中提取所有带有`nebula`标签的字段名，
+// GetVClause 从结构体中提取所有带有`nebula`标签的字段名，
 // 并生成形如`v.vertex.key as key`的SQL片段。
 //
 // @Author: 罗德
 // @Date: 2024/5/27
-func GetVClauseByNorm(v any, vertex string) (string, error) {
+func GetVClause(v any, vertex string) (string, error) {
 	var parts []string
 	val := reflect.ValueOf(v)
 	typ := val.Type()
@@ -170,12 +170,12 @@ func GetVClauseByNorm(v any, vertex string) (string, error) {
 	return strings.Join(parts, ","), nil
 }
 
-// GetClauseByNorm 从结构体中提取所有带有`nebula`标签的字段名，
+// GetClause 从结构体中提取所有带有`nebula`标签的字段名，
 // 并生成形如`key as key`的SQL片段。
 //
 // @Author: 罗德
 // @Date: 2024/5/27
-func GetClauseByNorm(v any) (string, error) {
+func GetClause(v any) (string, error) {
 	var parts []string
 	val := reflect.ValueOf(v)
 	typ := val.Type()
