@@ -15,6 +15,10 @@ import (
 	"nebula-orm-go/dialectors"
 )
 
+// 测试方法入口
+//
+// @Author: 罗德
+// @Date: 2024/6/11
 func main() {
 	address := fmt.Sprintf("%s:%d", "192.168.1.13", 9669)
 	dialer := dialectors.MustNewNebulaDialer(config.DialerConfig{
