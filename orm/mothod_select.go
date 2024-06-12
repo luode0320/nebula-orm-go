@@ -54,7 +54,7 @@ func (db *DB) GetNextVertexByVid(vertex model.IVertex, edge model.IEdge, level i
 		return nil, err
 	}
 	db.sql = fmt.Sprintf("match p=(v)<-[:%s*1..%d]-(n) where id(n)==%s return %s", edge.EdgeName(), level, vid, clause)
-	result, err := db.Limit(db.limit).ReturnRow()
+	result, err := db.ReturnRow()
 	if err != nil {
 		return result, err
 	}
@@ -110,7 +110,7 @@ func (db *DB) GetUpVertexByVid(vertex model.IVertex, edge model.IEdge, level int
 		return nil, err
 	}
 	db.sql = fmt.Sprintf("match p=(n)<-[:%s*1..%d]-(v) where id(n)==%s return %s", edge.EdgeName(), level, vid, clause)
-	result, err := db.Limit(db.limit).ReturnRow()
+	result, err := db.ReturnRow()
 	if err != nil {
 		return result, err
 	}
