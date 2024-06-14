@@ -2,6 +2,30 @@
 这是一个操作nebula图数据库的orm框架。
 
 # 示例
+请优先参考[examples](examples)示例: 配置nabula图数据库连接后可立即运行测试, 帮助你更快了解orm的使用
+```log 
+# 部分日志仅供参考
+
+2024/06/14 10:38:29 [INFO] insert vertex test_vertex(chain_key,parent_key) values '根节点':('根节点','无')
+2024/06/14 10:38:29 [INFO] insert edge test_edge(test) values '根节点' -> '根节点的第一个子节点':('根节点的第一个子节点')
+2024/06/14 10:38:29 [INFO] delete vertex '测试删除根节点的第四个节点' with edge
+2024/06/14 10:38:29 [INFO] delete edge test_edge '测试删除根节点' -> '测试删除根节点的第一个节点'
+2024/06/14 10:38:29 [INFO] update edge on test_edge '测试删除根节点' -> '测试删除根节点的第一个节点' set test = 'O(∩_∩)O' when test == '测试删除根节点的第一个节点' yield test as test
+将边[测试删除根节点] -> [测试删除根节点的第一个节点]的test字段更新为[O(∩_∩)O]:
+[
+  {
+    "test": "O(∩_∩)O"
+  }
+]
+2024/06/14 10:38:29 [INFO] match(v:test_vertex) where id(v)=='根节点' return v.test_vertex.chain_key as chain_key,v.test_vertex.parent_key as parent_key
+查询点[根节点]:
+[
+  {
+    "chain_key": "根节点",
+    "parent_key": "无"    
+  }                       
+]
+```
 
 ## [连接](examples%2Fmain.go)
 
